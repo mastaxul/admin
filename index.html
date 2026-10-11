@@ -1,305 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ms">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koleksi Promosi Khas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .fade-enter { opacity: 0; transition: opacity 0.8s ease-in-out; }
-        .fade-enter-active { opacity: 1; }
-        .progress-bar-fill { transition: width 0.1s linear; }
-        .thumb-preview { transition: transform 0.2s ease, opacity 0.3s ease, box-shadow 0.2s ease; }
-        .thumb-preview:hover { transform: scale(1.06); box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.6); z-index: 10; }
-        .thumbs-scroll::-webkit-scrollbar { height: 5px; }
-        .thumbs-scroll::-webkit-scrollbar-track { background: transparent; }
-        .thumbs-scroll::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.45); border-radius: 4px; }
-        .side-thumbs { scrollbar-width: none; }
-        .side-thumbs::-webkit-scrollbar { display: none; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101828">
+<title>MastaXul Mail</title>
+<style>
+:root{--bg:#f3f5f9;--panel:#fff;--ink:#182230;--muted:#667085;--line:#e4e7ec;--brand:#5945d6;--brand2:#eeeaff;--green:#067647;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--brand);color:white;font-weight:650}button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}button:disabled{opacity:.5;cursor:not-allowed}
+header{height:68px;background:#101828;color:white;display:flex;align-items:center;justify-content:space-between;padding:0 20px;gap:12px}header .logo{font-size:20px;font-weight:800;letter-spacing:-.4px}header small{color:#d0d5dd}
+.shell{max-width:1280px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:18px}
+nav,.main,.compose{background:var(--panel);border:1px solid var(--line);border-radius:16px}
+nav{padding:14px;height:max-content}nav button{width:100%;text-align:left;margin:3px 0;background:transparent;color:var(--ink)}nav button.active,nav button:hover{background:var(--brand2);color:var(--brand)}
+.navnote{font-size:12px;color:var(--muted);padding:14px 8px 4px}
+.main{overflow:hidden;min-height:560px}.toolbar{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.toolbar h1{font-size:21px;margin:0}.search{flex:1;max-width:340px;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.status{padding:10px 20px;background:#f9fafb;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}
+.msg{padding:14px 20px;border-bottom:1px solid #f0f1f4;display:grid;grid-template-columns:minmax(140px,220px) minmax(0,1fr) auto;gap:14px;align-items:center;cursor:pointer}.msg:hover{background:#faf9ff}.msg .from{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.msg .subject{font-weight:650}.msg .snippet{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.msg .date{font-size:12px;color:var(--muted);white-space:nowrap}
+.empty{padding:55px 22px;text-align:center;color:var(--muted)}.detail{padding:24px}.detail h2{margin:8px 0 18px}.detail pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere}
+.compose{padding:20px;margin:18px}.compose h2{margin:0 0 15px}.field{display:block;margin:12px 0}.field span{display:block;color:var(--muted);font-size:13px;margin-bottom:5px}.field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;color:var(--ink);background:white}.field textarea{min-height:180px;resize:vertical}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.notice{margin:16px 20px;padding:12px 14px;border-radius:10px;background:#fffaeb;color:#93370d;font-size:13px}.hidden{display:none!important}.foot{padding:15px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+@media(max-width:760px){.shell{grid-template-columns:1fr;margin:12px auto}.shell nav{display:flex;gap:6px;overflow:auto;padding:8px}.shell nav button{width:auto;white-space:nowrap;margin:0}.navnote{display:none}.msg{grid-template-columns:minmax(0,1fr) auto;gap:5px}.msg .from{grid-column:1}.msg .subject{grid-column:1}.msg .snippet{grid-column:1}.msg .date{grid-column:2;grid-row:1}.toolbar{padding:15px}.search{max-width:none;order:3;flex-basis:100%}header{padding:0 14px}}
+</style>
 </head>
-<body class="bg-slate-900 text-white min-h-screen flex flex-col justify-between font-sans select-none">
-
-    <main class="flex-1 flex flex-col items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 relative w-full">
-        <div class="w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl bg-slate-800/80 rounded-2xl shadow-2xl border border-slate-700/50 overflow-hidden backdrop-blur-md">
-            
-            <div class="p-3 sm:p-4 md:p-5 text-center border-b border-slate-700/50">
-                <h1 class="text-base sm:text-lg md:text-xl font-bold tracking-wide text-slate-100" id="gallery-title">Tawaran Khas Hari Ini</h1>
-                <p class="text-[11px] sm:text-xs text-slate-400 mt-1">Sila tunggu sebentar, gambar sedang dimuatkan...</p>
-            </div>
-
-            <div class="flex items-stretch gap-1.5 sm:gap-2 md:gap-3 p-2 sm:p-3 md:p-4 bg-slate-900/40">
-                <div id="left-thumbs" class="side-thumbs flex flex-col gap-1.5 sm:gap-2 w-12 sm:w-14 md:w-20 lg:w-24 overflow-y-auto max-h-[180px] sm:max-h-[240px] md:max-h-[320px] lg:max-h-[400px] shrink-0"></div>
-
-                <div class="relative flex-1 aspect-[4/3] bg-black overflow-hidden flex items-center justify-center rounded-lg md:rounded-xl">
-                    <img id="slideshow-image" src="" alt="Promosi" class="w-full h-full object-cover fade-enter fade-enter-active">
-                    <div class="absolute top-2 right-2 sm:top-3 sm:right-3 bg-black/60 text-white text-[10px] sm:text-xs px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full backdrop-blur-md border border-white/10">
-                        <span id="current-slide-num">1</span> / <span id="total-slides-num">1</span>
-                    </div>
-                </div>
-
-                <div id="right-thumbs" class="side-thumbs flex flex-col gap-1.5 sm:gap-2 w-12 sm:w-14 md:w-20 lg:w-24 overflow-y-auto max-h-[180px] sm:max-h-[240px] md:max-h-[320px] lg:max-h-[400px] shrink-0"></div>
-            </div>
-
-            <div class="px-2 sm:px-3 md:px-4 pb-2 sm:pb-3">
-                <div id="bottom-thumbs" class="thumbs-scroll flex gap-1.5 sm:gap-2 overflow-x-auto py-1"></div>
-            </div>
-
-            <div class="p-3 sm:p-4 md:p-5 space-y-2 sm:space-y-3 border-t border-slate-700/40">
-                <div class="w-full bg-slate-700/60 h-1.5 sm:h-2 rounded-full overflow-hidden">
-                    <div id="progress-bar" class="bg-indigo-500 h-full w-0 progress-bar-fill"></div>
-                </div>
-                <div class="flex justify-between items-center text-[11px] sm:text-xs text-slate-400">
-                    <span>Masa Tinggal: <strong id="countdown-text" class="text-slate-200">0s</strong></span>
-                    <span class="animate-pulse text-indigo-400">Memproses...</span>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="py-2 sm:py-3 text-center text-[10px] sm:text-xs text-slate-500">
-        &copy; <span id="year"></span> Hak Cipta Terpelihara.
-    </footer>
-
-    <div id="admin-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
-        <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-lg p-6 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-3">
-                <h2 class="text-lg font-bold text-indigo-400">⚙️ Borang Tetapan (Admin)</h2>
-                <button id="close-admin-btn" class="text-slate-400 hover:text-white text-xl font-bold">&times;</button>
-            </div>
-            <form id="config-form" class="space-y-4 text-sm">
-                <div>
-                    <label class="block font-medium text-slate-200 mb-1">Pautan Destinasi (Shopee Link):</label>
-                    <input type="url" id="input-target-url" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-                </div>
-                <div>
-                    <label class="block font-medium text-slate-200 mb-1">Pautan Gambar Slideshow (1 Link Per Baris):</label>
-                    <textarea id="input-images" rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white font-mono text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
-                </div>
-                <div>
-                    <label class="block font-medium text-slate-200 mb-1">Pautan Gambar Preview Kiri/Kanan/Bawah (1 Link Per Baris):</label>
-                    <textarea id="input-preview-images" rows="5" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white font-mono text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="https://...jpg&#10;https://...jpg"></textarea>
-                    <p class="text-xs text-slate-400 mt-1">Gambar kecil di tepi & bawah. Auto shuffle setiap reload.</p>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block font-medium text-slate-200 mb-1">Masa Sedia (Saat):</label>
-                        <input type="number" id="input-slide-duration" min="1" max="30" value="3" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block font-medium text-slate-200 mb-1">Tajuk Halaman:</label>
-                        <input type="text" id="input-page-title" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-                    </div>
-                </div>
-                <div class="flex gap-3 pt-2">
-                    <button type="submit" class="flex-1 bg-indigo-600 hover:bg-indigo-500 font-bold py-2.5 rounded-lg text-white">Simpan</button>
-                    <button type="button" id="reset-default-btn" class="bg-slate-700 hover:bg-slate-600 px-4 py-2.5 rounded-lg text-slate-300">Reset</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const DEFAULT_CONFIG = {
-            targetUrl: "https://shopee.com.my",
-            pageTitle: "Tawaran Khas Hari Ini",
-            slideDuration: 3,
-            images: [
-                "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
-                "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",
-                "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
-            ],
-            previewImages: []
-        };
-
-        function loadConfig() {
-            const saved = localStorage.getItem('site_config');
-            if (saved) {
-                try {
-                    const parsed = JSON.parse(saved);
-                    if (!Array.isArray(parsed.previewImages)) parsed.previewImages = [];
-                    return parsed;
-                } catch(e) { return { ...DEFAULT_CONFIG }; }
-            }
-            return { ...DEFAULT_CONFIG };
-        }
-
-        let config = loadConfig();
-
-        const imgElement = document.getElementById('slideshow-image');
-        const currentSlideNum = document.getElementById('current-slide-num');
-        const totalSlidesNum = document.getElementById('total-slides-num');
-        const progressBar = document.getElementById('progress-bar');
-        const countdownText = document.getElementById('countdown-text');
-        const galleryTitle = document.getElementById('gallery-title');
-        const leftThumbs = document.getElementById('left-thumbs');
-        const rightThumbs = document.getElementById('right-thumbs');
-        const bottomThumbs = document.getElementById('bottom-thumbs');
-        const adminModal = document.getElementById('admin-modal');
-        const configForm = document.getElementById('config-form');
-        const inputTargetUrl = document.getElementById('input-target-url');
-        const inputImages = document.getElementById('input-images');
-        const inputPreviewImages = document.getElementById('input-preview-images');
-        const inputSlideDuration = document.getElementById('input-slide-duration');
-        const inputPageTitle = document.getElementById('input-page-title');
-        const closeAdminBtn = document.getElementById('close-admin-btn');
-        const resetDefaultBtn = document.getElementById('reset-default-btn');
-
-        let currentSlideIndex = 0;
-        let totalSlides = config.images.length;
-        let totalDuration = totalSlides * config.slideDuration;
-        let progressTimer = null;
-
-        const SIDE_COUNT = 5;
-        const BOTTOM_COUNT = 30;
-
-        function shuffleArray(arr) {
-            const a = [...arr];
-            for (let i = a.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
-        }
-
-        function createThumbElement(url, sizeClass) {
-            const img = document.createElement('img');
-            img.src = url;
-            img.alt = 'Preview';
-            img.loading = 'lazy';
-            img.className = `thumb-preview ${sizeClass} object-cover rounded-md border border-slate-600/60 bg-slate-900 cursor-pointer opacity-90 hover:opacity-100`;
-            img.onerror = function() { this.style.display = 'none'; };
-            return img;
-        }
-
-        function renderPreviews() {
-            leftThumbs.innerHTML = '';
-            rightThumbs.innerHTML = '';
-            bottomThumbs.innerHTML = '';
-
-            let pool = Array.isArray(config.previewImages) ? [...config.previewImages] : [];
-            if (pool.length === 0) return;
-
-            pool = shuffleArray(pool);
-
-            while (pool.length < SIDE_COUNT * 2 + BOTTOM_COUNT) {
-                pool = pool.concat(shuffleArray(config.previewImages));
-            }
-
-            const sideClass = 'w-full aspect-square';
-            for (let i = 0; i < SIDE_COUNT; i++) {
-                leftThumbs.appendChild(createThumbElement(pool[i], sideClass));
-            }
-            for (let i = 0; i < SIDE_COUNT; i++) {
-                rightThumbs.appendChild(createThumbElement(pool[SIDE_COUNT + i], sideClass));
-            }
-
-            const bottomClass = 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 shrink-0';
-            for (let i = 0; i < BOTTOM_COUNT; i++) {
-                bottomThumbs.appendChild(createThumbElement(pool[SIDE_COUNT * 2 + i], bottomClass));
-            }
-        }
-
-        function initPublicPage() {
-            galleryTitle.textContent = config.pageTitle;
-            totalSlides = config.images.length;
-            totalSlidesNum.textContent = totalSlides;
-            currentSlideIndex = 0;
-            totalDuration = totalSlides * config.slideDuration;
-
-            if (totalSlides > 0) {
-                imgElement.src = config.images[0];
-            }
-
-            renderPreviews();
-            startSlideshowAndRedirect();
-        }
-
-        function changeSlide(index) {
-            imgElement.classList.remove('fade-enter-active');
-            setTimeout(() => {
-                imgElement.src = config.images[index];
-                currentSlideNum.textContent = index + 1;
-                imgElement.classList.add('fade-enter-active');
-            }, 150);
-        }
-
-        function startSlideshowAndRedirect() {
-            clearInterval(progressTimer);
-            const startTime = Date.now();
-            const totalMs = totalDuration * 1000;
-
-            progressTimer = setInterval(() => {
-                const elapsedMs = Date.now() - startTime;
-                const remainingMs = Math.max(0, totalMs - elapsedMs);
-                countdownText.textContent = `${Math.ceil(remainingMs / 1000)}s`;
-                progressBar.style.width = `${Math.min(100, (elapsedMs / totalMs) * 100)}%`;
-
-                const calculatedIndex = Math.min(totalSlides - 1, Math.floor(elapsedMs / (config.slideDuration * 1000)));
-                if (calculatedIndex !== currentSlideIndex) {
-                    currentSlideIndex = calculatedIndex;
-                    changeSlide(currentSlideIndex);
-                }
-
-                if (remainingMs <= 0) {
-                    clearInterval(progressTimer);
-                    window.location.href = config.targetUrl;
-                }
-            }, 100);
-        }
-
-        function openAdminModal() {
-            inputTargetUrl.value = config.targetUrl || '';
-            inputImages.value = (config.images || []).join('\n');
-            inputPreviewImages.value = (config.previewImages || []).join('\n');
-            inputSlideDuration.value = config.slideDuration || 3;
-            inputPageTitle.value = config.pageTitle || '';
-            adminModal.classList.remove('hidden');
-        }
-
-        closeAdminBtn.addEventListener('click', () => adminModal.classList.add('hidden'));
-        document.addEventListener('keydown', e => {
-            if (e.shiftKey && e.key.toLowerCase() === 'a') openAdminModal();
-        });
-        window.addEventListener('hashchange', () => {
-            if (location.hash === '#admin') openAdminModal();
-        });
-        if (location.hash === '#admin') openAdminModal();
-
-        configForm.addEventListener('submit', e => {
-            e.preventDefault();
-            const rawImages = inputImages.value.split('\n').map(u => u.trim()).filter(u => u);
-            if (!rawImages.length) {
-                alert("Sila masukkan sekurang-kurangnya satu pautan gambar slideshow!");
-                return;
-            }
-            const rawPreview = inputPreviewImages.value.split('\n').map(u => u.trim()).filter(u => u);
-
-            config = {
-                targetUrl: inputTargetUrl.value.trim(),
-                pageTitle: inputPageTitle.value.trim(),
-                slideDuration: parseInt(inputSlideDuration.value, 10) || 3,
-                images: rawImages,
-                previewImages: rawPreview
-            };
-            localStorage.setItem('site_config', JSON.stringify(config));
-            adminModal.classList.add('hidden');
-            initPublicPage();
-            alert("Tetapan berjaya disimpan!");
-        });
-
-        resetDefaultBtn.addEventListener('click', () => {
-            if (confirm("Adakah anda pasti mahu mereset semua tetapan?")) {
-                localStorage.removeItem('site_config');
-                config = { ...DEFAULT_CONFIG };
-                openAdminModal();
-                initPublicPage();
-            }
-        });
-
-        initPublicPage();
-    </script>
+<body>
+<header><div><div class="logo">✉ MastaXul Mail</div><small>admin@mastaxul.my</small></div><button id="signInBtn">Sambung Gmail</button></header>
+<div class="shell">
+<nav>
+<button class="active" data-view="inbox">📥 Peti masuk</button>
+<button data-view="sent">📤 Dihantar</button>
+<button data-view="compose">✏️ Tulis email</button>
+<button data-view="refresh">↻ Muat semula</button>
+<div class="navnote">Peti masuk disediakan oleh Gmail API. Penghantaran keluar menggunakan Brevo melalui backend selamat.</div>
+</nav>
+<section class="main">
+<div class="toolbar"><h1 id="viewTitle">Peti masuk</h1><input id="search" class="search" placeholder="Cari dalam mesej yang dimuatkan…" aria-label="Cari mesej"><button class="secondary" id="refreshBtn">Muat semula</button></div>
+<div class="status" id="status">Sambungkan akaun Gmail untuk memaparkan mesej. Gunakan akaun yang menerima email Cloudflare.</div>
+<div id="list"></div>
+<div id="detail" class="detail hidden"></div>
+<div id="compose" class="compose hidden">
+<h2>Tulis email</h2>
+<label class="field"><span>Kepada</span><input id="to" type="email" placeholder="penerima@example.com" required></label>
+<label class="field"><span>Subjek</span><input id="subject" placeholder="Subjek email" required></label>
+<label class="field"><span>Mesej</span><textarea id="body" placeholder="Tulis mesej di sini…" required></textarea></label>
+<div class="actions"><button id="sendBtn">Hantar melalui Brevo</button><button class="secondary" id="cancelCompose">Batal</button></div>
+<p class="navnote">Email dihantar sebagai admin@mastaxul.my. Balasan penerima akan dihantar ke alamat Reply-To yang dikonfigurasi.</p>
+</div>
+<div class="foot">MastaXul Mail · Prototaip awal. Jangan gunakan pada akaun awam sehingga autentikasi dan kawalan akses tambahan disemak.</div>
+</section>
+</div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+/*
+  SETUP: Set GOOGLE_CLIENT_ID in the line below to your Google OAuth Web Client ID.
+  Do not place a Google client secret, Brevo API key, or SMTP key in this file.
+*/
+const GOOGLE_CLIENT_ID = "PASTE_GOOGLE_OAUTH_WEB_CLIENT_ID_HERE";
+const SEND_ENDPOINT = "/api/send";
+const GMAIL_API = "https://gmail.googleapis.com/gmail/v1/users/me";
+let tokenClient=null, accessToken="", messages=[], currentView="inbox", currentQuery="";
+const $=id=>document.getElementById(id);
+function status(s){$("status").textContent=s}
+function escapeHtml(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function headersOf(m){const h=m.payload?.headers||[];const get=n=>h.find(x=>x.name.toLowerCase()===n.toLowerCase())?.value||"";return {from:get("From"),to:get("To"),subject:get("Subject")||"(Tiada subjek)",date:get("Date"),replyTo:get("Reply-To")}}
+function fmtDate(s){if(!s)return "";let d=new Date(s);return isNaN(d)?s:d.toLocaleString("ms-MY",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}
+function initGoogle(){if(!window.google?.accounts?.oauth2){setTimeout(initGoogle,250);return}
+ if(GOOGLE_CLIENT_ID.includes("PASTE_")){status("Sediakan Google OAuth Client ID dahulu. Ikut README_SETUP_MS.md.");return}
+ tokenClient=google.accounts.oauth2.initTokenClient({client_id:GOOGLE_CLIENT_ID,scope:"https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/userinfo.email",callback:async r=>{if(r.error){status("Login Gmail gagal: "+r.error);return}accessToken=r.access_token; $("signInBtn").textContent="Gmail disambungkan";status("Berjaya disambungkan. Memuatkan peti masuk…");await loadMessages("inbox")}});
+}
+$("signInBtn").addEventListener("click",()=>{if(!tokenClient)initGoogle();if(tokenClient)tokenClient.requestAccessToken({prompt:accessToken?"":"consent"})});
+async function gmailFetch(url){let r=await fetch(url,{headers:{Authorization:"Bearer "+accessToken}});if(!r.ok){let t=await r.text();throw new Error("Gmail API "+r.status+": "+t.slice(0,180))}return r.json()}
+async function loadMessages(view=currentView){if(!accessToken){status("Tekan Sambung Gmail dahulu.");return}
+ currentView=view==="sent"?"sent":"inbox";$("viewTitle").textContent=currentView==="sent"?"Email dihantar":"Peti masuk";$("detail").classList.add("hidden");$("compose").classList.add("hidden");$("list").classList.remove("hidden");status("Memuatkan mesej…");
+ try{const q=currentView==="sent"?"in:sent":"in:anywhere -in:sent";const data=await gmailFetch(`${GMAIL_API}/messages?maxResults=40&q=${encodeURIComponent(q)}`);const ids=data.messages||[];
+ const details=await Promise.all(ids.map(async x=>{try{return await gmailFetch(`${GMAIL_API}/messages/${x.id}?format=full`)}catch(e){return null}}));messages=details.filter(Boolean);renderList();status(`${messages.length} mesej dimuatkan daripada Gmail. Email masuk ke admin@mastaxul.my diteruskan ke akaun Gmail ini oleh Cloudflare.`)
+ }catch(e){status("Tak dapat memuatkan email: "+e.message+" — pastikan Gmail API aktif dan OAuth Client ID betul.")}}
+function renderList(){let filtered=messages.filter(m=>{let h=headersOf(m);let s=[h.from,h.to,h.subject,m.snippet].join(" ").toLowerCase();return s.includes(currentQuery.toLowerCase())});$("list").innerHTML=filtered.length?filtered.map(m=>{let h=headersOf(m);return `<div class="msg" data-id="${escapeHtml(m.id)}"><div class="from">${escapeHtml(h.from)}</div><div><div class="subject">${escapeHtml(h.subject)}</div><div class="snippet">${escapeHtml(m.snippet||"")}</div></div><div class="date">${escapeHtml(fmtDate(h.date))}</div></div>`}).join(""):`<div class="empty">Tiada mesej dipaparkan. Cuba muat semula atau semak sambungan Gmail.</div>`;document.querySelectorAll(".msg").forEach(el=>el.addEventListener("click",()=>openMessage(el.dataset.id)))}
+function decodePart(data){try{let b=data.replace(/-/g,"+").replace(/_/g,"/");return decodeURIComponent(escape(atob(b)))}catch(e){return ""}}
+function extractBody(p){if(p.body?.data)return decodePart(p.body.data);for(const part of (p.parts||[])){let r=extractBody(part);if(r)return r}return ""}
+function openMessage(id){let m=messages.find(x=>x.id===id);if(!m)return;let h=headersOf(m),body=extractBody(m.payload)||m.snippet||"(Kandungan tidak tersedia dalam paparan ringkas.)";$("list").classList.add("hidden");$("detail").classList.remove("hidden");$("detail").innerHTML=`<button class="secondary" id="backList">← Kembali</button><h2>${escapeHtml(h.subject)}</h2><p><b>Daripada:</b> ${escapeHtml(h.from)}</p><p><b>Kepada:</b> ${escapeHtml(h.to)}</p><p><b>Tarikh:</b> ${escapeHtml(h.date)}</p><hr><pre>${escapeHtml(body)}</pre><div class="actions"><button id="replyBtn">Balas</button></div>`;$("backList").onclick=()=>{$("detail").classList.add("hidden");$("list").classList.remove("hidden")};$("replyBtn").onclick=()=>{showCompose();$("to").value=(h.replyTo||h.from).match(/<([^>]+)>/)?.[1]||(h.replyTo||h.from);$("subject").value=h.subject.startsWith("Re:")?h.subject:"Re: "+h.subject;$("body").value="\n\n--- Mesej asal ---\n"+body}}
+function showCompose(){$("list").classList.add("hidden");$("detail").classList.add("hidden");$("compose").classList.remove("hidden");$("viewTitle").textContent="Tulis email";currentView="compose"}
+async function sendEmail(){const to=$("to").value.trim(),subject=$("subject").value.trim(),textContent=$("body").value.trim();if(!to||!subject||!textContent){status("Lengkapkan penerima, subjek dan mesej.");return}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)){status("Alamat penerima tidak sah.");return}
+ $("sendBtn").disabled=true;status("Menghantar melalui Brevo…");try{const r=await fetch(SEND_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({to,subject,textContent})});const data=await r.json();if(!r.ok)throw new Error(data.error||"Penghantaran gagal");status("Permintaan diterima Brevo. ID mesej: "+(data.messageId||"berjaya dihantar")+". Semak folder Inbox/Spam penerima.");$("to").value="";$("subject").value="";$("body").value="";}catch(e){status("Gagal hantar: "+e.message+". Pastikan Cloudflare Worker dan BREVO_API_KEY telah disediakan.")}finally{$("sendBtn").disabled=false}}
+$("sendBtn").addEventListener("click",sendEmail);$("cancelCompose").addEventListener("click",()=>loadMessages(currentView==="sent"?"sent":"inbox"));$("refreshBtn").addEventListener("click",()=>loadMessages(currentView));$("search").addEventListener("input",e=>{currentQuery=e.target.value;renderList()});
+document.querySelectorAll("nav button[data-view]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");let v=b.dataset.view;if(v==="compose")showCompose();else if(v==="refresh")loadMessages(currentView);else loadMessages(v)}));
+window.addEventListener("load",initGoogle);
+</script>
 </body>
 </html>
